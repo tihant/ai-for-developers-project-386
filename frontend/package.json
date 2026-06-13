@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "test:e2e": "npx playwright test",
     "preview": "vite preview",
     "mock-api": "prism mock openapi.yaml --port 4010",
     "generate-types": "openapi-typescript openapi.yaml -o src/api/types.ts"
@@ -29,6 +30,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",
+    "@playwright/test": "^1.60.0",
     "@stoplight/prism-cli": "^5.14.2",
     "@tailwindcss/vite": "^4.3.1",
     "@types/node": "^24.12.3",

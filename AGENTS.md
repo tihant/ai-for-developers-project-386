@@ -77,6 +77,34 @@ npm run build     # runs tsc -b (typecheck) then vite build
 npm run lint      # eslint
 ```
 
+## Commit conventions
+
+All commits MUST follow [Conventional Commits](https://www.conventionalcommits.org/). The type prefix is required:
+
+```
+feat: add booking cancellation
+fix: handle empty event types list
+docs: update API spec
+chore: upgrade dependencies
+refactor: extract slot generation logic
+test: add booking flow e2e test
+```
+
+The CI will validate commit messages on pull requests using commitlint.
+
+## Release automation
+
+Releases are managed by release-please. Every push to `main` triggers a check: if there are unreleased conventional commits, release-please creates or updates a Release PR with a changelog and proposed version bump. Merging the Release PR creates a GitHub Release.
+
+## E2E tests
+
+```bash
+cd frontend
+npm run test:e2e      # Playwright tests (requires backend + frontend running)
+```
+
+Playwright config at `frontend/playwright.config.ts` starts the backend and Vite dev server automatically via `webServer`.
+
 ## Adding shadcn components
 
 ```bash
